@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_services/stacked_services.dart';
 
+import 'common/service_ui/setup_snackbar_ui.dart';
+import 'common/util/router.gr.dart' as navRoute;
 import 'features/wrapper/wrapper_view.dart';
+import 'locator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
+  setupSnackbarUi();
   runApp(MyApp());
 }
 
@@ -11,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Budgit',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -29,6 +36,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: WrapperView(),
+      initialRoute: navRoute.Routes.wrapper_view,
+      onGenerateRoute: navRoute.Router().onGenerateRoute,
+      navigatorKey: StackedService.navigatorKey,
     );
   }
 }

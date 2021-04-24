@@ -16,6 +16,8 @@ class WrapperView extends StatelessWidget {
             index: model.currentIndex,
           ),
           bottomNavigationBar: BottomNavigationBar(
+            currentIndex: model.currentIndex,
+            onTap: model.setIndex,
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.card_giftcard),
