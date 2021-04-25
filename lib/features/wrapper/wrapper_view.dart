@@ -18,9 +18,11 @@ class WrapperView extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: model.currentIndex,
             onTap: model.setIndex,
+            selectedItemColor: Colors.blue,
+            unselectedItemColor: Colors.grey,
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.card_giftcard),
+                icon: Icon(Icons.account_balance_wallet),
                 label: 'Wallets',
               ),
               BottomNavigationBarItem(
